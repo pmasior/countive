@@ -46,9 +46,9 @@ services:
           cpu: "0.25"
           memory: "500M"
     environment:
-      POSTGRES_DB: ${DATABASE_NAME}
-      POSTGRES_PASSWORD: ${DATABASE_PASS}
-      POSTGRES_USER: ${DATABASE_USER}
+      - POSTGRES_DB: ${DATABASE_NAME}
+      - POSTGRES_PASSWORD: ${DATABASE_PASS}
+      - POSTGRES_USER: ${DATABASE_USER}
     image: "postgres:alpine"
     networks:
       - countive-docker-dev-network
