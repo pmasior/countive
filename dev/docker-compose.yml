@@ -4,7 +4,7 @@ services:
   application:
     build:
       context: ../application
-      dockerfile: application.prod.Dockerfile
+      dockerfile: application.dev.Dockerfile
     container_name: countive-docker-dev-application
     deploy:
       resources:
