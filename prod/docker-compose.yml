@@ -1,0 +1,54 @@
+version: "3"
+
+services:
+  application:
+    build:
+      context: ../application
+      dockerfile: application.prod.Dockerfile
+    container_name: countive-docker-application
+    deploy:
+      resources:
+        limits:
+          cpu: "1"
+          memory: "500M"
+        reservations:
+          cpu: "0.25"
+          memory: "250M"
+    environment:
+      - DATABASE_URI: ${DATABASE_URI}
+      - NEXT_AUTH_JS_JWT_SECRET: ${NEXT_AUTH_JS_JWT_SECRET}
+      - NEXT_AUTH_JS_SECRET: ${NEXT_AUTH_JS_SECRET}
+      - PORT: 3001
+    networks:
+      - countive-docker-network
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    restart: on-failure:1
+  database:
+    container_name: countive-docker-database
+    deploy:
+      resources:
+        limits:
+          cpu: "0.5"
+          memory: "1G"
+        reservations:
+          cpu: "0.25"
+          memory: "500M"
+    environment:
+      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASS}
+      POSTGRES_USER: ${DATABASE_USER}
+    image: "postgres:alpine"
+    networks:
+      - countive-docker-network
+    ports:
+      - "5432:5432"
+    restart: on-failure:1
+    volumes:
+      - type: bind
+        source: ../database
+        target: /var/lib/postgres/data
+
+networks:
+  countive-docker-network:

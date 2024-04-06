@@ -39,13 +39,13 @@ const nextAuthOptions = {
       },
     }),
   ],
-  secret: process.env.SECRET,
+  secret: process.env.NEXT_AUTH_JS_SECRET,
   session: {
     jwt: true,
   },
   jwt: {
     encryption: true,
-    secret: process.env.JWT_ENCRYPTION_SECRET,
+    secret: process.env.NEXT_AUTH_JS_JWT_SECRET,
   },
   pages: {
     signIn: "/login",
