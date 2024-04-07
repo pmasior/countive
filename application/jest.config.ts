@@ -1,9 +1,11 @@
-/*
- * For a detailed explanation regarding each configuration property and type check, visit:
+/**
+ * For a detailed explanation regarding each configuration property, visit:
  * https://jestjs.io/docs/configuration
  */
 
-export default {
+import type { Config } from "jest";
+
+const config: Config = {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -11,9 +13,9 @@ export default {
   // bail: 0,
 
   // The directory where Jest should store its cached dependency information
-  // cacheDirectory: "/tmp/jest_rt",
+  // cacheDirectory: "/tmp/jest_0",
 
-  // Automatically clear mock calls and instances between every test
+  // Automatically clear mock calls, instances, contexts and results before every test
   clearMocks: true,
 
   // Indicates whether the coverage information should be collected while executing the test
@@ -31,7 +33,7 @@ export default {
   // ],
 
   // Indicates which provider should be used to instrument code for coverage
-  // coverageProvider: "babel",
+  coverageProvider: "v8",
 
   // A list of reporter names that Jest uses when writing coverage reports
   // coverageReporters: [
@@ -49,6 +51,11 @@ export default {
 
   // Make calling deprecated APIs throw helpful error messages
   // errorOnDeprecated: false,
+
+  // The default configuration for fake timers
+  // fakeTimers: {
+  //   "enableGlobally": false
+  // },
 
   // Force coverage collection from ignored files using an array of glob patterns
   // forceCoverageMatch: [],
@@ -73,6 +80,8 @@ export default {
   // An array of file extensions your modules use
   // moduleFileExtensions: [
   //   "js",
+  //   "mjs",
+  //   "cjs",
   //   "jsx",
   //   "ts",
   //   "tsx",
@@ -85,11 +94,6 @@ export default {
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
-
-  // NOTE: an array of absolute Paths to additional locations to search when
-  // resolving modules (docs: https://jestjs.io/docs/configuration).
-  // Allows for import using absolute path in tests
-  modulePaths: ["<rootDir>"],
 
   // Activates notifications for test results
   // notify: false,
@@ -106,7 +110,7 @@ export default {
   // Use this configuration option to add custom reporters to Jest
   // reporters: undefined,
 
-  // Automatically reset mock state between every test
+  // Automatically reset mock state before every test
   // resetMocks: false,
 
   // Reset the module registry before running each individual test
@@ -115,7 +119,7 @@ export default {
   // A path to a custom resolver
   // resolver: undefined,
 
-  // Automatically restore mock state between every test
+  // Automatically restore mock state and implementation before every test
   // restoreMocks: false,
 
   // The root directory that Jest should scan for tests and modules within
@@ -142,7 +146,7 @@ export default {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  testEnvironment: "jsdom",
+  // testEnvironment: "jest-environment-node",
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
@@ -170,21 +174,8 @@ export default {
   // This option allows use of a custom test runner
   // testRunner: "jest-circus/runner",
 
-  // This option sets the URL for the jsdom environment. It is reflected in properties such as location.href
-  // testURL: "http://localhost",
-
-  // Setting this value to "fake" allows the use of fake timers for functions such as "setTimeout"
-  // timers: "real",
-
   // A map from regular expressions to paths to transformers
-  // NOTE: If you wanted to be able to use a new language feature in (...)
-  // your tests that aren't yet supported by node, you might plug in one of
-  // many compilers that compile a future version of JavaScript to a current
-  // one (docs: https://jestjs.io/docs/configuration).
-  // Allows to use import (instead require())
-  transform: {
-    "^.+\\.(js|jsx|ts|tsx)$": ["babel-jest", { presets: ["next/babel"] }],
-  },
+  // transform: undefined,
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
@@ -204,3 +195,5 @@ export default {
   // Whether to use watchman for file crawling
   // watchman: true,
 };
+
+export default config;
