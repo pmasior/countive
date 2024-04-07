@@ -1,48 +1,24 @@
 {
-  "name": "countive",
+  "name": "app",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "initdb": "ts-node prisma/seed.ts",
-    "test": "jest"
-  },
-  "prisma": {
-    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+    "lint": "next lint"
   },
   "dependencies": {
-    "@date-io/date-fns": "^2.11.0",
-    "@emotion/react": "^11.5.0",
-    "@emotion/styled": "^11.3.0",
-    "@mui/icons-material": "^5.0.4",
-    "@mui/lab": "^5.0.0-alpha.54",
-    "@mui/material": "^5.0.4",
-    "@mui/x-data-grid": "^5.0.0-beta.7",
-    "@next-auth/prisma-adapter": "^0.5.2-next.19",
-    "@prisma/client": "^3.3.0",
-    "@testing-library/jest-dom": "^5.15.0",
-    "@testing-library/react": "^12.1.2",
-    "date-fns": "^2.25.0",
-    "jest": "^27.3.1",
-    "lodash": "^4.17.21",
-    "next": "11.1.2",
-    "next-auth": "4.0.0-beta.6",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-hook-form": "^7.17.4",
-    "swr": "^1.0.1"
+    "react": "^18",
+    "react-dom": "^18",
+    "next": "14.1.4"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.177",
-    "@types/node": "^16.11.6",
-    "@types/react": "^17.0.30",
-    "eslint": "7.32.0",
-    "eslint-config-next": "11.1.2",
-    "prisma": "^3.3.0",
-    "ts-node": "^10.4.0",
-    "typescript": "^4.4.4"
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.4"
   }
 }
